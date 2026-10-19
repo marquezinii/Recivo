@@ -11,20 +11,28 @@
     "start": "vite build && electron .",
     "test": "node --test electron/",
     "test:e2e": "vite build && node scripts/e2e.mjs",
+    "dist": "tsc --noEmit && vite build && electron-builder --win",
     "postinstall": "node node_modules/electron/install.js"
   },
-  "dependencies": {
-    "@fontsource-variable/figtree": "^5.3.0",
-    "lucide-react": "^1.59.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+  "author": "marquezinii",
+  "build": {
+    "appId": "com.recivo.app",
+    "productName": "Recivo",
+    "directories": { "output": "release" },
+    "files": ["dist/**", "electron/**", "!electron/*.test.cjs", "build/icon.png", "package.json"],
+    "win": { "target": "nsis", "icon": "build/icon.ico" }
   },
   "devDependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "electron": "^44.9.0",
+    "electron-builder": "^26.15.3",
+    "lucide-react": "^1.59.0",
     "playwright-core": "^1.64.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4"
   }

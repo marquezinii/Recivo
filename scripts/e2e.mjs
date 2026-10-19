@@ -13,8 +13,9 @@ const shots = join(process.cwd(), '.e2e');
 await mkdir(shots, { recursive: true });
 
 const app = await electron.launch({
-  executablePath: electronPath,
-  args: ['.'],
+  // RECIVO_EXE=release\win-unpacked\Recivo.exe tests the packaged app instead of the dev checkout
+  executablePath: process.env.RECIVO_EXE ?? electronPath,
+  args: process.env.RECIVO_EXE ? [] : ['.'],
   env: { ...process.env, RECIVO_DATA_DIR: dataDir },
 });
 const page = await app.firstWindow();

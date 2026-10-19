@@ -35,6 +35,18 @@ npm run dev      # modo desenvolvimento (Vite + Electron, recarrega ao salvar)
 npm start        # build de produção + abre o app
 ```
 
+## Instalar no Windows
+
+```bash
+npm run dist     # gera release\Recivo Setup 0.1.0.exe (~107 MB)
+```
+
+1. Dê dois cliques em `Recivo Setup 0.1.0.exe`. A instalação é de um clique, só para o seu usuário (sem pedir administrador) em `%LOCALAPPDATA%\Programs\Recivo`, cria atalhos na Área de Trabalho e no Menu Iniciar e abre o app.
+2. O instalador não é assinado digitalmente, então o Windows pode mostrar "O Windows protegeu seu PC": clique em **Mais informações → Executar assim mesmo**.
+3. Para desinstalar: Configurações → Aplicativos. Suas receitas em `Documentos\Recivo` **não** são apagadas.
+
+Para testar o app empacotado sem instalar: `release\win-unpacked\Recivo.exe`.
+
 ## Testes
 
 ```bash
@@ -56,4 +68,4 @@ O teste e2e salva capturas de tela em `.e2e/` (claro, escuro e janela estreita).
 
 ## Ideias para depois
 
-Instalador `.exe` (electron-builder), backup/sincronização, lista de compras, conversão de medidas, importar de outros apps.
+Assinatura do instalador, atualização automática, backup/sincronização, lista de compras, conversão de medidas, importar de outros apps.
